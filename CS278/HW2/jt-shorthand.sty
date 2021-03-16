@@ -1,0 +1,186 @@
+\ProvidesPackage{jt-shorthand}
+
+%%%%%%%%%%%%%%%%%%% PACKAGES I USE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{hyperref}
+\RequirePackage{mathtools}
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+\RequirePackage{mathrsfs}
+\RequirePackage{bm} %for bold math
+\RequirePackage{array} %for newcolumntype
+\RequirePackage{physics} %for \qty paren command
+\RequirePackage{enumitem} %for custom enumerates
+\RequirePackage{scalerel} %for larger symbols
+\RequirePackage{tikz-cd} %for commutative digrams
+\RequirePackage{titlesec} %for definition of subsubsection
+\RequirePackage{bbm}
+\RequirePackage{graphicx}
+\RequirePackage{pdfpages}
+\RequirePackage{bbold}
+\RequirePackage{listings}
+
+\author{Joshua Turcotti}
+
+%%%%%%%%%%%%%%%%%%% MATH SHORTHANDS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\fspace}[2]{#1 \langle #2 \rangle} %define free space notation
+\newcommand{\pset}{\mathscr{P}} %define power set notation
+\newcommand{\sub}{\subseteq}
+\newcommand{\subspc}{\sqsubseteq} %define square 'subspace' operator
+\newcommand{\supspc}{\sqsupseteq} %define square 'superspace' operator
+\newcommand{\subgrp}{\sqsubseteq} %define same for groups
+\newcommand{\supgrp}{\sqsupseteq}
+\newcommand{\coset}[1]{\overline{#1}}
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\xto}[1]{\xrightarrow{#1}}
+\newcommand{\sm}{\setminus}
+\newcommand{\es}{\emptyset}
+
+\newcommand{\del}{\nabla}
+
+\newcommand{\ideal}[1]{\langle #1 \rangle}
+\newcommand{\inn}[1]{\langle #1 \rangle}
+
+% useful specific terms, annoying to type
+\newcommand{\Ttilde}{\widetilde{T}}
+\newcommand{\Tbar}{\overline{T}}
+\newcommand{\zeroset}{\{0\}}
+\newcommand{\intsfield}{\ints \times \ints \setminus \zeroset}
+\newcommand{\inv}{^{-1}}
+\newcommand{\ind}[1]{^{(#1)}}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\indexset}[2]{\{#1\}_{#2}} % define index set notation
+\newcommand{\iset}[2]{\indexset{#1}{#2}}
+\newcommand{\recip}[1]{\frac{1}{#1}}
+\newcommand{\psd}{\succeq}
+\newcommand{\pd}{\succ}
+\newcommand{\ints}[1]{\set{1, \ldots, #1}}
+
+\newcommand{\xor}{\oplus}
+
+% set of shorthands using blackboard font
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\F}{\mathbb{F}}
+
+% symmetric matrices
+\newcommand{\Sym}{\mathbb{S}}
+\newcommand{\PSD}{\mathbb{S}_+}
+\newcommand{\PD}{\mathbb{S}_{++}}
+
+%probability shorthands
+\newcommand{\E}[1]{\mathbb{E}\qty[#1]} %expected value
+\newcommand{\Eover}[2]{\mathbb{E}_{#1}\qty[#2]}
+\newcommand{\Ed}[1]{\mathbb{E}d\qty(#1)} %expected value of distortion
+\renewcommand{\P}[1]{\mathbb{P}\qty[#1]} %probability
+\newcommand{\1}{\mathbb{1}}
+\newcommand{\0}{\mathbb{0}}
+\newcommand{\Nor}{\mathcal{N}}
+
+\newcommand{\half}{\frac{1}{2}}
+
+\newcommand{\One}{\bm{\mathbbm{1}}}
+
+\newcommand{\onto}{\hookrightarrow}
+\renewcommand{\into}{\twoheadrightarrow}
+
+% used for random variable alphabets
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\Y}{\mathcal{Y}}
+
+\newcommand{\explain}[1]{\qquad\text{(#1)}}
+
+% category shorthandds
+\newcommand{\catC}{\mathbf{C}}
+\newcommand{\catD}{\mathbf{D}}
+\newcommand{\catE}{\mathbf{E}}
+\newcommand{\catI}{\mathbf{I}}
+
+% fancy letters
+\newcommand{\algebra}{\mathfrak{A}}
+
+\newcommand{\invlim}{\varprojlim}
+\newcommand{\dirlim}{\varinjlim}
+
+
+% defines alphalist envionment
+\newlist{alphalist}{enumerate}{1}
+\setlist[alphalist,1]{label=\textbf{(\alph*)}}
+\newlist{ilist}{enumerate}{1}
+\setlist[ilist,1]{label=\textbf{(\roman*)}}
+
+
+% set custom operators (* for typset lim beneath)
+\DeclareMathOperator*{\bigplus}{\scalerel*{+}{\sum}}
+\DeclareMathOperator*{\bigast}{\scalerel*{*}{\sum}}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Auto}{Auto}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Corr}{Corr}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Coker}{Coker}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\Osc}{Osc}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\diag}{diag}
+
+\DeclareMathOperator{\Det}{Det}
+\DeclareMathOperator{\Per}{Per}
+
+% defines mathmode column types
+\newcolumntype{C}{>{$}c<{$}}
+\newcolumntype{L}{>{$}l<{$}}
+\newcolumntype{R}{>{$}r<{$}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% GREEK LETTERS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\a}{\alpha}
+\newcommand{\A}{\Alpha}
+\renewcommand{\b}{\beta}
+\newcommand{\g}{\gamma}
+\renewcommand{\d}{\delta}
+\newcommand{\D}{\Delta}
+\newcommand{\e}{\epsilon}
+\newcommand{\Eps}{\mathcal{E}}
+\renewcommand{\r}{\rho}
+\newcommand{\s}{\sigma}
+\renewcommand{\S}{\Sigma}
+\renewcommand{\t}{\tau}
+\newcommand{\T}{\Tau}
+\renewcommand{\th}{\theta}
+\newcommand{\Th}{\Theta}
+\renewcommand{\i}{\iota}
+\renewcommand{\k}{\kappa}
+\renewcommand{\o}{\omega}
+\renewcommand{\O}{\Omega}
+\renewcommand{\l}{\lambda}
+\newcommand{\m}{\mu}
+\newcommand{\p}{\pi}
+\renewcommand{\P}{\Pi}
+\newcommand{\z}{\zeta}
+
+\newcommand{\xh}{{\hat{x}}}
+\newcommand{\Xh}{{\hat{X}}}
+
+\renewcommand{\X}{\mathcal{X}}
+
+\numberwithin{equation}{section}
+
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  frame=single,
+  breaklines=true,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
+
+\newtheorem{lemma}{Lemma}
